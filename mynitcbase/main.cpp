@@ -95,52 +95,10 @@ void printTables()
 		printf("\n");
 }
 }
-//int main(int argc, char *argv[]) {
-  //Disk disk_run;
 int main(int argc, char *argv[]) {
   Disk disk_run;
 StaticBuffer buffer;
 OpenRelTable cache;
  
-  //      updateAttributeName("Students","Class","Batch"); //updates the name of the attribute
-        for (int relId = 0; relId < 3; relId++) {
-		//int relId = 2;
-		
-		RelCatEntry relCatBuffer;
-		RelCacheTable::getRelCatEntry(relId, &relCatBuffer);
-		printf ("Relation: %s\n", relCatBuffer.relName);
-		
-		for (int attrIndex = 0; attrIndex < relCatBuffer.numAttrs; attrIndex++) {
-			AttrCatEntry attrCatBuffer;
-			AttrCacheTable::getAttrCatEntry(relId, attrIndex, &attrCatBuffer);
-			const char *attrType = attrCatBuffer.attrType == NUMBER ? "NUM" : "STR";
-			printf ("    %s: %s\n", attrCatBuffer.attrName, attrType);
-			
-			}
-		
-		printf("\n");
-	}
-
-
-  return 0;
-
+return FrontendInterface::handleFrontend(argc, argv);
 }
- // unsigned char buffer[BLOCK_SIZE];
- // Disk::readBlock(buffer, 0);
- // char message[] = "hello";
- // memcpy(buffer + 20, message, 6);
- // Disk::writeBlock(buffer, 7000);
-
- /* unsigned char buffer2[BLOCK_SIZE];
-  char message2[6];
-  Disk::readBlock(buffer2, 0);
-  memcpy(message2, buffer2 + 20, 6);
-  std::cout << message2;
-
-  return 0;
-
-  // StaticBuffer buffer;
-  // OpenRelTable cache;
-
- // return FrontendInterface::handleFrontend(argc, argv);*/
-
